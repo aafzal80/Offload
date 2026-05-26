@@ -383,9 +383,12 @@ img, svg { max-width: 100%; }
 .form-row input[aria-invalid="true"], .form-row textarea[aria-invalid="true"] {
   border-color: #E5736B; box-shadow: 0 0 0 3px rgba(229,115,107,.15);
 }
-.form-note { margin: .9rem 0 0; font-size: .95rem; text-align: center; min-height: 1.2em; }
-.form-note.error { color: #F0938B; }
-.form-note.success { color: var(--mint); font-weight: 600; }
+/* Static caption directly under the submit button */
+.form-note { font-size: 0.85rem; opacity: 0.55; margin-top: 0.75rem; text-align: center; }
+/* Live status message set by JS (success / error after submission) */
+.form-status { margin: .6rem 0 0; font-size: .95rem; text-align: center; min-height: 1.2em; }
+.form-status.error { color: #F0938B; }
+.form-status.success { color: var(--mint); font-weight: 600; }
 
 /* ---------- Focus visibility ---------- */
 a:focus-visible, button:focus-visible, summary:focus-visible,
@@ -439,17 +442,29 @@ input:focus-visible, textarea:focus-visible {
 }
 .trust-commitment p { margin: 0; color: var(--text-soft); font-size: .96rem; line-height: 1.55; }
 
-/* ---------- Results note (under the single case study) ---------- */
-.results-note {
-  text-align: center;
-  font-size: 0.85rem;
-  opacity: 0.5;
-  margin-top: 1.5rem;
-}
-
 /* Center the single-card case grid */
 .case-grid-single { display: flex; justify-content: center; }
 .case-grid-single .case-card { max-width: 720px; width: 100%; }
+
+/* ---------- Pricing note (caption under the pricing table) ---------- */
+.pricing-note {
+  text-align: center;
+  font-size: 0.875rem;
+  opacity: 0.6;
+  margin: 1.25rem auto 2rem;
+  max-width: 600px;
+}
+
+/* ---------- Footer founder bio ---------- */
+.footer-bio {
+  font-size: 0.9rem;
+  opacity: 0.75;
+  line-height: 1.6;
+  max-width: 340px;
+  margin: 0;
+  color: var(--text-soft);
+}
+.footer-bio strong { color: var(--ink); font-weight: 600; }
 
 /* ---------- Scroll reveal ---------- */
 .reveal { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }

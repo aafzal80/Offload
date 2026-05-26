@@ -80,7 +80,7 @@ When you're ready to use **hireoffload.com** instead of the github.io link:
 | Your email address | `ahmad@hireoffload.com` |
 | Your phone number | `919` |
 | The big headline | `We automate the busywork` |
-| Prices | `1,500` |
+| Prices | `2,500` |
 | A case study result | `18%` or `2&ndash;3 days` |
 
 The colors match your business cards: a deep navy background (`--navy: #0F1923`) with a mint/teal accent (`--mint: #5CE0C2`). To tweak them, open `styles.css`, find those names near the top, and replace the color codes. Save and refresh.

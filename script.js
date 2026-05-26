@@ -62,7 +62,7 @@
     var setNote = function (msg, type) {
       if (!note) return;
       note.textContent = msg;
-      note.className = "form-note" + (type ? " " + type : "");
+      note.className = "form-status" + (type ? " " + type : "");
     };
 
     var isValidEmail = function (val) {
