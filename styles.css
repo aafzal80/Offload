@@ -406,6 +406,51 @@ input:focus-visible, textarea:focus-visible {
 .footer-bottom { padding-top: 1.5rem; }
 .footer-bottom p { margin: 0; font-size: .88rem; color: var(--text-faint); }
 
+/* ---------- Long-form body sections (Success, Stakes) ---------- */
+.success-body, .stakes-body {
+  font-size: 1.12rem; line-height: 1.7; color: var(--text);
+  text-align: left;
+}
+.success-body p, .stakes-body p { margin: 0 0 1.1rem; }
+.success-body strong { color: var(--mint); font-weight: 600; }
+.stakes-body strong { color: var(--ink); }
+
+/* Centered CTA wrapper for in-section calls to action */
+.section-cta { display: flex; justify-content: center; margin-top: 2rem; }
+
+/* ---------- Trust commitments (4-up grid of promises) ---------- */
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+.trust-commitment {
+  background: var(--navy-3); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 1.6rem 1.5rem; box-shadow: var(--shadow-sm);
+  transition: border-color .2s ease, transform .2s ease;
+}
+.trust-commitment:hover { border-color: var(--line-strong); transform: translateY(-2px); }
+.trust-commitment h3 {
+  font-size: 1.05rem; color: var(--mint); margin: 0 0 .55rem;
+  display: flex; align-items: flex-start; gap: .5rem;
+}
+.trust-commitment h3::before {
+  content: "✓"; color: var(--mint); font-weight: 700; line-height: 1.2;
+}
+.trust-commitment p { margin: 0; color: var(--text-soft); font-size: .96rem; line-height: 1.55; }
+
+/* ---------- Results note (under the single case study) ---------- */
+.results-note {
+  text-align: center;
+  font-size: 0.85rem;
+  opacity: 0.5;
+  margin-top: 1.5rem;
+}
+
+/* Center the single-card case grid */
+.case-grid-single { display: flex; justify-content: center; }
+.case-grid-single .case-card { max-width: 720px; width: 100%; }
+
 /* ---------- Scroll reveal ---------- */
 .reveal { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
 .reveal.in { opacity: 1; transform: none; }
@@ -416,6 +461,12 @@ input:focus-visible, textarea:focus-visible {
 /* ============================================================
    Responsive
    ============================================================ */
+@media (max-width: 900px) {
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .grid-4 { grid-template-columns: 1fr; }
+}
 @media (max-width: 920px) {
   .hero-inner { grid-template-columns: 1fr; }
   .hero-card { max-width: 480px; }
