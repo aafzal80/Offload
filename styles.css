@@ -455,6 +455,100 @@ input:focus-visible, textarea:focus-visible {
   max-width: 600px;
 }
 
+/* ---------- "What we build" trailing note ---------- */
+.build-extra {
+  text-align: center;
+  font-size: 0.9rem;
+  opacity: 0.6;
+  color: var(--text-soft);
+  margin: 2.5rem auto 0;
+  max-width: 640px;
+}
+
+/* ---------- Testimonial section ---------- */
+.testimonial { max-width: 760px; margin: 0 auto; text-align: center; }
+.testimonial .eyebrow { margin-bottom: 1.5rem; }
+.testimonial-mark {
+  display: block;
+  color: var(--mint);
+  font-family: var(--font-head);
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1;
+  margin: 0 0 1.5rem;
+}
+.testimonial-quote {
+  font-family: var(--font-head);
+  font-size: clamp(1.4rem, 2.6vw, 2rem);
+  line-height: 1.4;
+  color: var(--ink);
+  font-weight: 500;
+  margin: 0 0 2rem;
+}
+.testimonial-attr {
+  display: inline-flex;
+  align-items: center;
+  gap: .75rem;
+  font-size: 1rem;
+  margin: 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.testimonial-rule {
+  display: inline-block;
+  width: 36px;
+  height: 2px;
+  background: var(--mint);
+}
+.testimonial-name { color: var(--ink); font-weight: 600; }
+.testimonial-role { color: var(--text-faint); font-weight: 400; }
+
+/* ---------- Founder section ---------- */
+.founder-grid {
+  display: grid;
+  grid-template-columns: minmax(220px, 300px) 1fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+  max-width: 920px;
+  margin: 0 auto;
+}
+.founder-photo {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  border-radius: 50%;
+  background: var(--navy-3);
+  border: 1px solid var(--line);
+  overflow: hidden;
+  position: relative;
+}
+.founder-photo img {
+  width: 100%; height: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.founder-text h3 {
+  font-size: 1.6rem;
+  color: var(--ink);
+  margin: 0 0 .3rem;
+}
+.founder-title {
+  display: inline-block;
+  color: var(--mint);
+  font-size: .82rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  margin: 0 0 1.4rem;
+}
+.founder-bio p {
+  color: var(--text);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin: 0 0 1rem;
+}
+.founder-bio p:last-child { margin-bottom: 0; }
+
 /* ---------- Footer founder bio ---------- */
 .footer-bio {
   font-size: 0.9rem;
@@ -478,6 +572,11 @@ input:focus-visible, textarea:focus-visible {
    ============================================================ */
 @media (max-width: 900px) {
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 720px) {
+  .founder-grid { grid-template-columns: 1fr; max-width: 460px; gap: 1.75rem; text-align: center; }
+  .founder-photo { max-width: 220px; margin: 0 auto; }
+  .founder-title { margin-bottom: 1.1rem; }
 }
 @media (max-width: 600px) {
   .grid-4 { grid-template-columns: 1fr; }
