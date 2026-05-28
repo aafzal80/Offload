@@ -336,6 +336,27 @@ img, svg { max-width: 100%; }
 .case-num { display: block; font-family: var(--font-head); font-weight: 600; font-size: 1.35rem; color: var(--mint); line-height: 1.15; }
 .case-cap { display: block; font-size: .85rem; color: var(--text-faint); margin-top: .25rem; }
 
+/* ---------- Case study workflow image ---------- */
+.case-workflow {
+  margin: 1.6rem auto 1.8rem;
+  display: block;
+  text-align: center;
+}
+.case-workflow img {
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: var(--navy);
+}
+.case-workflow figcaption {
+  margin-top: .7rem;
+  font-size: .85rem;
+  color: var(--text-faint);
+  opacity: 0.75;
+}
+
 /* ---------- FAQ ---------- */
 .faq-list { display: flex; flex-direction: column; gap: .8rem; }
 .faq-item {
