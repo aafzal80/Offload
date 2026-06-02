@@ -404,8 +404,24 @@ img, svg { max-width: 100%; }
 .form-row input[aria-invalid="true"], .form-row textarea[aria-invalid="true"] {
   border-color: #E5736B; box-shadow: 0 0 0 3px rgba(229,115,107,.15);
 }
+/* ---------- Booking block (Google Calendar CTA) ---------- */
+.booking-block { display: flex; flex-direction: column; gap: 1.4rem; }
+.booking-details {
+  list-style: none; padding: 0; margin: 0;
+  display: flex; flex-direction: column; gap: .7rem;
+}
+.booking-details li {
+  position: relative; padding-left: 1.5rem; color: var(--text-soft); font-size: .97rem; line-height: 1.5;
+}
+.booking-details li::before {
+  content: ""; position: absolute; left: 0; top: .55em;
+  width: 7px; height: 7px; border-radius: 50%; background: var(--mint);
+}
+.booking-details strong { color: var(--ink); }
+
 /* Static caption directly under the submit button */
 .form-note { font-size: 0.85rem; opacity: 0.55; margin-top: 0.75rem; text-align: center; }
+.form-note a { color: var(--mint); }
 /* Live status message set by JS (success / error after submission) */
 .form-status { margin: .6rem 0 0; font-size: .95rem; text-align: center; min-height: 1.2em; }
 .form-status.error { color: #F0938B; }
@@ -619,19 +635,4 @@ input:focus-visible, textarea:focus-visible {
     max-height: 0; overflow: hidden; transition: max-height .3s ease; padding: 0 24px;
   }
   .nav-menu.open { max-height: 75vh; padding: .5rem 24px 1.2rem; }
-  .nav-menu li { width: 100%; }
-  .nav-menu a { display: block; padding: .85rem 0; border-bottom: 1px solid var(--line); }
-  .nav-menu .nav-cta { margin-top: .8rem; }
-  .nav-menu .nav-cta a { border-bottom: 0; padding: .85rem; text-align: center; }
-
-  .trust-inner { grid-template-columns: 1fr 1fr; gap: 1.4rem 1rem; }
-  .grid-2 { grid-template-columns: 1fr; }
-  .grid-3 { grid-template-columns: 1fr; }
-  .included-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-  .case-results { grid-template-columns: 1fr 1fr; }
-}
-
-@media (max-width: 420px) {
-  .hero-actions .btn { width: 100%; }
-  .trust-inner { grid-template-columns: 1fr; }
-}
+  .nav-m
