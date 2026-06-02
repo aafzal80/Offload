@@ -635,4 +635,20 @@ input:focus-visible, textarea:focus-visible {
     max-height: 0; overflow: hidden; transition: max-height .3s ease; padding: 0 24px;
   }
   .nav-menu.open { max-height: 75vh; padding: .5rem 24px 1.2rem; }
-  .nav-m
+  .nav-menu li { width: 100%; }
+  .nav-menu a { display: block; padding: .85rem 0; border-bottom: 1px solid var(--line); }
+  .nav-menu .nav-cta { margin-top: .8rem; }
+  .nav-menu .nav-cta a { border-bottom: 0; padding: .85rem; text-align: center; }
+
+  .trust-inner { grid-template-columns: 1fr 1fr; gap: 1.4rem 1rem; }
+  .grid-2 { grid-template-columns: 1fr; }
+  .grid-3 { grid-template-columns: 1fr; }
+  .included-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .case-results { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 420px) {
+  .hero-actions .btn { width: 100%; }
+  .trust-inner { grid-template-columns: 1fr; }
+  .trust-num { font-size: 1.2rem; }
+}
