@@ -1,3 +1,30 @@
+
+/* ---------- Mobile pricing cards ---------- */
+.pricing-cards { display: none; flex-direction: column; gap: 1rem; margin-bottom: 1.5rem; }
+.pricing-card {
+  background: var(--navy-3); border: 1px solid var(--line); border-radius: var(--radius);
+  overflow: hidden; box-shadow: var(--shadow-sm);
+}
+.pricing-card-featured { border-color: var(--mint-tint-2); background: linear-gradient(160deg, #1B3340, #15242F); }
+.pricing-card-head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 1.1rem 1.3rem; border-bottom: 1px solid var(--line); gap: .5rem; flex-wrap: wrap;
+}
+.pricing-card-title { font-family: var(--font-head); font-weight: 600; font-size: 1.05rem; color: var(--ink); display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
+.pricing-card-price { font-family: var(--font-head); font-weight: 700; font-size: 1.1rem; color: var(--mint); white-space: nowrap; }
+.pricing-card-tag {
+  font-size: .68rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+  background: var(--mint); color: var(--navy); padding: .2rem .6rem; border-radius: var(--radius-pill);
+}
+.pricing-card-rows { margin: 0; padding: 0; }
+.pricing-card-row {
+  display: flex; justify-content: space-between; gap: 1rem;
+  padding: .75rem 1.3rem; border-bottom: 1px solid var(--line);
+}
+.pricing-card-row:last-child { border-bottom: 0; }
+.pricing-card-row dt { color: var(--text-faint); font-size: .88rem; font-weight: 600; flex-shrink: 0; }
+.pricing-card-row dd { margin: 0; color: var(--text); font-size: .92rem; text-align: right; }
+
 /* ============================================================
    Offload — landing page styles
    Brand theme: deep navy + mint/teal (matches business cards)
@@ -645,6 +672,11 @@ input:focus-visible, textarea:focus-visible {
   .grid-3 { grid-template-columns: 1fr; }
   .included-grid { grid-template-columns: 1fr; gap: 1.5rem; }
   .case-results { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 640px) {
+  .pricing-cards { display: flex; }
+  .pricing-table-wrap { display: none; }
 }
 
 @media (max-width: 420px) {
