@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Internal test page. Not linked from the live site. Delete after picking a form. -->
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Form test (internal)</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* Offload brand (real live values).
+       NOTE: the instructions listed #111d2b / #3dffd0 but the actual site
+       brand is navy #0F1923 + mint #5CE0C2, so the on-brand comparison is honest. */
+    :root {
+      --navy: #0F1923;
+      --card: #16242F;
+      --mint: #5CE0C2;
+      --mint-bright: #7DEAD2;
+      --ink: #EEF4F5;
+      --muted: #8892a0;
+      --line: rgba(255,255,255,.10);
+      --font-head: "Space Grotesk", "Inter", sans-serif;
+      --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; background: var(--navy); color: var(--ink);
+      font-family: var(--font-body); line-height: 1.6; padding: 48px 24px;
+    }
+    h1 {
+      font-family: var(--font-head); font-weight: 600; text-align: center;
+      font-size: clamp(1.5rem, 4vw, 2.2rem); margin: 0 auto .6rem; max-width: 720px;
+    }
+    .sub { text-align: center; color: var(--muted); max-width: 620px; margin: 0 auto 2.5rem; }
+    .cards { display: flex; gap: 1.5rem; max-width: 980px; margin: 0 auto; flex-wrap: wrap; }
+    .card {
+      flex: 1 1 380px; background: var(--card); border: 1px solid var(--line);
+      border-radius: 12px; padding: 1.8rem;
+    }
+    .card h2 { font-family: var(--font-head); font-weight: 600; font-size: 1.25rem; margin: 0 0 1.2rem; }
+    .card h2 .tag { color: var(--mint); }
+    .caption { color: var(--muted); font-size: .85rem; margin-top: 1rem; }
+
+    /* Formspree (hand-built, on-brand) */
+    .field { margin-bottom: 1rem; }
+    .field label { display: block; font-weight: 600; font-size: .9rem; margin-bottom: .35rem; }
+    .field input, .field textarea {
+      width: 100%; padding: .75rem .9rem; border: 1.5px solid var(--line); border-radius: 8px;
+      background: var(--navy); color: var(--ink); font-family: var(--font-body); font-size: 1rem;
+      resize: vertical;
+    }
+    .field input:focus, .field textarea:focus {
+      outline: none; border-color: var(--mint); box-shadow: 0 0 0 3px rgba(92,224,194,.15);
+    }
+    .btn {
+      width: 100%; background: var(--mint); color: var(--navy); border: 0; cursor: pointer;
+      font-family: var(--font-body); font-weight: 600; font-size: 1rem;
+      padding: .85rem 1.4rem; border-radius: 999px; transition: background .2s ease;
+    }
+    .btn:hover { background: var(--mint-bright); }
+
+    .checklist {
+      max-width: 980px; margin: 2.5rem auto 0; background: var(--card);
+      border: 1px solid var(--line); border-radius: 12px; padding: 1.6rem 1.8rem;
+    }
+    .checklist h3 { font-family: var(--font-head); font-weight: 600; margin: 0 0 .8rem; }
+    .checklist ol { margin: 0; padding-left: 1.2rem; color: var(--muted); }
+    .checklist li { margin-bottom: .4rem; }
+  </style>
+</head>
+<body>
+  <h1>Form test: pick one, then delete this page.</h1>
+  <p class="sub">Internal only. Not linked anywhere on the live site. Submit one fake lead to each, then choose a winner.</p>
+
+  <div class="cards">
+    <!-- LEFT: HubSpot (default styling, for an honest comparison) -->
+    <div class="card">
+      <h2>Option A <span class="tag">— HubSpot</span></h2>
+      <div id="hubspot-form"></div>
+      <script charset="utf-8" src="//js.hsforms.net/forms/embed/v2.js"></script>
+      <script>
+        hbspt.forms.create({
+          portalId: "REPLACE_HUBSPOT_PORTAL_ID",
+          formId: "REPLACE_HUBSPOT_FORM_ID",
+          region: "na1",
+          target: "#hubspot-form"
+        });
+      </script>
+      <p class="caption">Check HubSpot Contacts after submitting.</p>
+    </div>
+
+    <!-- RIGHT: Formspree (hand-built, fully on-brand) -->
+    <div class="card">
+      <h2>Option B <span class="tag">— Formspree</span></h2>
+      <form action="https://formspree.io/f/REPLACE_FORMSPREE_ID" method="POST">
+        <div class="field">
+          <label for="fs-name">Name</label>
+          <input type="text" id="fs-name" name="name" required />
+        </div>
+        <div class="field">
+          <label for="fs-email">Email</label>
+          <input type="email" id="fs-email" name="email" required />
+        </div>
+        <div class="field">
+          <label for="fs-message">What's eating your time?</label>
+          <textarea id="fs-message" name="message" rows="3"></textarea>
+        </div>
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+        <button type="submit" class="btn">Send it over</button>
+      </form>
+      <p class="caption">Check your Formspree dashboard / email after submitting.</p>
+    </div>
+  </div>
+
+  <div class="checklist">
+    <h3>After submitting one test lead to each:</h3>
+    <ol>
+      <li>Did the lead arrive?</li>
+      <li>Does it look on-brand?</li>
+      <li>Any unremovable "powered by" branding?</li>
+      <li>How clunky did it feel?</li>
+    </ol>
+    <p class="caption">Pick the winner, then delete form-test.html.</p>
+  </div>
+</body>
+</html>

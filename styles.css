@@ -500,6 +500,30 @@ input:focus-visible, textarea:focus-visible {
 }
 .trust-commitment p { margin: 0; color: var(--text-soft); font-size: .96rem; line-height: 1.55; }
 
+/* Commitments grid: flex + center so the 5th card lays out cleanly */
+.trust-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; }
+.trust-grid .trust-commitment { flex: 1 1 240px; max-width: 300px; }
+
+/* Muted reassurance line beneath the hero CTA */
+.hero-cta-note { color: #8892a0; font-size: .85rem; margin: 0 0 1.2rem; }
+
+/* Cost-of-doing-nothing: two-item number comparison */
+.stakes-compare {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem;
+}
+.stakes-compare-item {
+  background: var(--navy-3); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 1.6rem 1.4rem; text-align: center;
+}
+.stakes-compare-num {
+  display: block; font-family: var(--font-head); font-weight: 600;
+  font-size: clamp(1.35rem, 3vw, 1.9rem); color: var(--mint); line-height: 1.15;
+}
+.stakes-compare-cap {
+  display: block; margin-top: .5rem; font-size: .95rem; color: var(--text-soft);
+}
+@media (max-width: 600px) { .stakes-compare { grid-template-columns: 1fr; } }
+
 /* Center the single-card case grid */
 .case-grid-single { display: flex; justify-content: center; }
 .case-grid-single .case-card { max-width: 720px; width: 100%; }
