@@ -54,50 +54,41 @@
     revealEls.forEach(function (el) { observer.observe(el); });
   }
 
-  /* ---- Contact form handling ---- */
-  var form = document.getElementById("contact-form");
-  var note = document.getElementById("form-note");
+  /* ---- Lead form handling (Formspree AJAX, keeps visitor on the page) ---- */
+  var isValidEmail = function (val) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+  };
 
-  if (form) {
+  document.querySelectorAll(".lead-form").forEach(function (form) {
+    var note = form.querySelector(".form-status");
+
     var setNote = function (msg, type) {
       if (!note) return;
       note.textContent = msg;
       note.className = "form-status" + (type ? " " + type : "");
     };
 
-    var isValidEmail = function (val) {
-      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
-    };
-
     form.addEventListener("submit", function (e) {
-      // Basic client-side validation
-      var name = form.querySelector("#name");
-      var email = form.querySelector("#email");
-      var message = form.querySelector("#message");
+      e.preventDefault();
+
+      // Validate: name + a valid email are required, message is optional.
+      var name = form.querySelector('[name="name"]');
+      var email = form.querySelector('[name="email"]');
       var firstInvalid = null;
 
-      [name, email, message].forEach(function (field) {
+      [name, email].forEach(function (field) {
+        if (!field) return;
         var bad = !field.value.trim() || (field === email && !isValidEmail(email.value.trim()));
         field.setAttribute("aria-invalid", bad ? "true" : "false");
         if (bad && !firstInvalid) firstInvalid = field;
       });
 
       if (firstInvalid) {
-        e.preventDefault();
-        setNote("Please fill in your name, a valid email, and a short message.", "error");
+        setNote("Please add your name and a valid email.", "error");
         firstInvalid.focus();
         return;
       }
 
-      // If the form still points at the placeholder, don't submit — guide the owner.
-      if (form.getAttribute("action").indexOf("YOUR_FORM_ID") !== -1) {
-        e.preventDefault();
-        setNote("Form not connected yet — see README.md to link Formspree (2 minutes).", "error");
-        return;
-      }
-
-      // Submit to Formspree via fetch so the visitor stays on the page.
-      e.preventDefault();
       var submitBtn = form.querySelector('button[type="submit"]');
       var originalText = submitBtn ? submitBtn.textContent : "";
       if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = "Sending…"; }
@@ -111,7 +102,7 @@
         .then(function (response) {
           if (response.ok) {
             form.reset();
-            setNote("Thanks — your request is in. We'll reply within one business day.", "success");
+            setNote("Got it. You'll hear back within one business day.", "success");
           } else {
             return response.json().then(function (data) {
               var msg = (data && data.errors) ? data.errors.map(function (er) { return er.message; }).join(", ")
@@ -127,5 +118,5 @@
           if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalText; }
         });
     });
-  }
+  });
 })();

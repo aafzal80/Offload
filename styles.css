@@ -507,6 +507,10 @@ input:focus-visible, textarea:focus-visible {
 /* Muted reassurance line beneath the hero CTA */
 .hero-cta-note { color: #8892a0; font-size: .85rem; margin: 0 0 1.2rem; }
 
+/* Secondary "not ready to book?" line in the hero, links to the lead form */
+.hero-alt { margin: 1.4rem 0 0; color: var(--text-soft); font-size: .95rem; max-width: 48ch; }
+.hero-alt a { color: var(--mint); font-weight: 600; }
+
 /* Cost-of-doing-nothing: two-item number comparison */
 .stakes-compare {
   display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem;

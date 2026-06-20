@@ -92,6 +92,7 @@
             <li><span class="dot" aria-hidden="true"></span> Fixed price, no surprises</li>
             <li><span class="dot" aria-hidden="true"></span> No long-term contracts</li>
           </ul>
+          <p class="hero-alt">Not ready to pick a time? <a href="#lead-form">Tell us the one task eating the most of your week</a> and we'll email you back with whether it's worth automating. No pitch, no obligation.</p>
         </div>
 
         <div class="hero-card reveal">
@@ -617,6 +618,37 @@
             <summary>What industries do you work with?</summary>
             <div class="faq-body"><p>Trades, healthcare, professional services, field service &amp; logistics, retail and hospitality, and more. If your team is doing repetitive manual work, the approach applies.</p></div>
           </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Lead form (email alternative to booking) ===== -->
+    <section id="lead-form" class="section">
+      <div class="container container-narrow">
+        <div class="section-head">
+          <p class="eyebrow">Prefer to start by email?</p>
+          <h2>Not ready to book a call?</h2>
+          <p class="section-sub">Tell us the one task eating the most of your week and we'll email you back with whether it's worth automating. No pitch, no obligation.</p>
+        </div>
+        <div class="contact-form-wrap">
+          <form class="lead-form" action="https://formspree.io/f/mgojwvrb" method="POST" novalidate>
+            <input type="hidden" name="_subject" value="New lead from hireoffload.com" />
+            <div class="form-row">
+              <label for="lead-name">Name</label>
+              <input type="text" id="lead-name" name="name" autocomplete="name" required />
+            </div>
+            <div class="form-row">
+              <label for="lead-email">Email</label>
+              <input type="email" id="lead-email" name="email" autocomplete="email" required />
+            </div>
+            <div class="form-row">
+              <label for="lead-message">What's eating your time? <span class="optional">(optional)</span></label>
+              <textarea id="lead-message" name="message" rows="4" placeholder="e.g. We spend hours every week building bids by hand"></textarea>
+            </div>
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            <button type="submit" class="btn btn-primary btn-block">Send it over</button>
+            <p class="form-status" role="status" aria-live="polite"></p>
+          </form>
         </div>
       </div>
     </section>
