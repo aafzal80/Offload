@@ -117,9 +117,11 @@ img, svg { max-width: 100%; }
 .container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
 .container-narrow { max-width: var(--maxw-narrow); }
 
-.section { padding: clamp(64px, 8vw, 108px) 0; }
+.section { padding: clamp(76px, 9vw, 128px) 0; }
 .section-tint { background: var(--navy-2); }
 .section-dark { background: var(--deep); }
+/* Subtle hairline divider so adjacent sections separate cleanly */
+main > section + section { border-top: 1px solid var(--line); }
 
 .section-head { max-width: 680px; margin: 0 auto clamp(36px, 5vw, 56px); text-align: center; }
 .section-sub { color: var(--text-soft); font-size: 1.08rem; }
@@ -530,7 +532,38 @@ input:focus-visible, textarea:focus-visible {
 
 /* Center the single-card case grid */
 .case-grid-single { display: flex; justify-content: center; }
-.case-grid-single .case-card { max-width: 720px; width: 100%; }
+.case-grid-single .case-card { max-width: 860px; width: 100%; }
+/* Workflow diagram: show it large and readable (it is real proof) */
+.case-workflow { margin: 1.75rem 0; }
+.case-workflow img { width: 100%; }
+
+/* Proof stats band (case study transformation) */
+.proof-band { max-width: 920px; margin: 0 auto 2.5rem; }
+.proof-band-title {
+  text-align: center; font-family: var(--font-head); font-weight: 600;
+  font-size: 1.15rem; color: var(--ink); margin: 0 0 1.4rem;
+}
+.proof-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.proof-stat {
+  background: var(--navy-3); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 1.5rem 1.2rem; text-align: center;
+}
+.proof-num {
+  display: block; font-family: var(--font-head); font-weight: 600;
+  font-size: clamp(1.2rem, 2.4vw, 1.6rem); color: var(--mint); line-height: 1.15;
+}
+.proof-cap { display: block; margin-top: .5rem; font-size: .92rem; color: var(--text-soft); }
+.proof-foot {
+  text-align: center; font-size: 0.8rem; color: var(--text-faint);
+  opacity: 0.85; margin: 1.1rem auto 0; max-width: 620px;
+}
+@media (max-width: 640px) { .proof-stats { grid-template-columns: 1fr; } }
+
+/* Small centered note under a section (e.g. roadmap caveat) */
+.section-note {
+  text-align: center; font-size: 0.9rem; color: var(--text-soft);
+  opacity: 0.8; margin: 2rem auto 0; max-width: 660px;
+}
 
 /* ---------- Pricing note (caption under the pricing table) ---------- */
 .pricing-note {
@@ -592,7 +625,7 @@ input:focus-visible, textarea:focus-visible {
 /* ---------- Founder section ---------- */
 .founder-grid {
   display: grid;
-  grid-template-columns: minmax(220px, 300px) 1fr;
+  grid-template-columns: minmax(240px, 320px) 1fr;
   gap: clamp(2rem, 5vw, 4rem);
   align-items: center;
   max-width: 920px;
