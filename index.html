@@ -492,48 +492,74 @@
     <section id="results" class="section">
       <div class="container">
         <div class="section-head">
-          <p class="eyebrow">In practice</p>
-          <h2>One client. One problem. Here's what changed.</h2>
+          <p class="eyebrow">Recent builds</p>
+          <h2>Three workflows. Here's what each one removes.</h2>
         </div>
 
-        <div class="proof-band">
-          <p class="proof-band-title">What changed for them</p>
-          <div class="proof-stats">
-            <div class="proof-stat">
-              <span class="proof-num reveal">2&ndash;3 days &rarr; under 30 min</span>
-              <span class="proof-cap">Bid turnaround</span>
-            </div>
-            <div class="proof-stat">
-              <span class="proof-num reveal">0</span>
-              <span class="proof-cap">New tools the field crew had to learn</span>
-            </div>
-            <div class="proof-stat">
-              <span class="proof-num reveal">~2 months</span>
-              <span class="proof-cap">To pay for itself vs. one part-time hire</span>
-            </div>
-          </div>
-          <p class="proof-foot"><em>Payback is illustrative: a one-time pilot at the mid-range against a single part-time hire at roughly $2,500/mo.</em></p>
-        </div>
-
-        <div class="grid case-grid case-grid-single">
+        <div class="grid grid-3 case-grid">
           <article class="case-card">
             <div class="case-head">
               <span class="case-tag">Commercial roofing</span>
-              <span class="case-meta">3 crews &middot; Southeast US</span>
+              <span class="case-meta">Built on synthetic data &middot; Not deployed</span>
             </div>
             <p class="case-situation">
-              The owner walked every job himself: site photos, handwritten notes, then manual typing
-              into a Word template. <strong>One bid took two to three days.</strong>
+              The owner walks every job himself: site photos, handwritten notes, then manual typing
+              into a Word template. <strong>One bid takes two to three days.</strong>
             </p>
-            <p class="case-built"><strong>What we built:</strong> A Bid Generator. Photos and field notes go in;
+            <p class="case-built"><strong>The build:</strong> A Bid Generator. Photos and field notes go in;
               a formatted draft comes out: boilerplate written, job-specific details pulled in, anything
               unclear flagged for the owner to review.</p>
-            <figure class="case-workflow">
-              <img src="assets/images/roofing-bid-workflow.png" alt="Diagram of a local roofing company's bid workflow built in n8n, showing the flow from an email trigger through deduplication, attachment checks, and bid generation to delivery." />
-              <figcaption>A roofing company's bid workflow, built in n8n.</figcaption>
-            </figure>
+            <div class="case-results">
+              <div class="case-stat"><span class="case-num reveal">2&ndash;3 days &rarr; under 30 min</span><span class="case-cap">Bid turnaround in testing</span></div>
+              <div class="case-stat"><span class="case-num reveal">0</span><span class="case-cap">New tools the workflow required</span></div>
+            </div>
+          </article>
+
+          <article class="case-card">
+            <div class="case-head">
+              <span class="case-tag">Property management</span>
+              <span class="case-meta">Built on synthetic data</span>
+            </div>
+            <p class="case-situation">
+              A monthly owner report means pulling the trial balance, the budget, and the rent roll,
+              dropping them into a template, recomputing variances, then writing the narrative
+              explaining why NOI missed. <strong>Thirty to sixty minutes per property, every month.</strong>
+            </p>
+            <p class="case-built"><strong>The build:</strong> An Owner Reporting Pack. Three exports go in.
+              A draft report comes back: income statement with variances, rent roll summary, AR aging,
+              upcoming expirations, and a written variance narrative that names the GL account driving
+              each one. Every number is computed in code. The language model only writes the prose around
+              figures it was handed, so it cannot invent a number.</p>
+            <div class="case-results">
+              <div class="case-stat"><span class="case-num reveal">3 exports in</span><span class="case-cap">Files your system already produces</span></div>
+              <div class="case-stat"><span class="case-num reveal">Draft out</span><span class="case-cap">Reviewed by your team before it ships</span></div>
+            </div>
+          </article>
+
+          <article class="case-card">
+            <div class="case-head">
+              <span class="case-tag">Commercial leasing</span>
+              <span class="case-meta">Built on synthetic data</span>
+            </div>
+            <p class="case-situation">
+              A new lease arrives as a PDF. Someone reads it end to end and re-keys the parties, term,
+              rent schedule, CAM treatment, options, and every critical date into a spreadsheet.
+              <strong>An afternoon, per lease.</strong>
+            </p>
+            <p class="case-built"><strong>The build:</strong> A Lease Abstract workflow. The PDF goes in;
+              a structured abstract comes back with every field citing the clause it came from, so the
+              reviewer can verify rather than re-read.</p>
+            <div class="case-results">
+              <div class="case-stat"><span class="case-num reveal">Afternoon &rarr; ~2 min</span><span class="case-cap">Per lease abstract</span></div>
+              <div class="case-stat"><span class="case-num reveal">Every field cited</span><span class="case-cap">Traceable to the source clause</span></div>
+            </div>
           </article>
         </div>
+
+        <figure class="case-workflow">
+          <img src="assets/images/roofing-bid-workflow.png" alt="Diagram of a local roofing company's bid workflow built in n8n, showing the flow from an email trigger through deduplication, attachment checks, and bid generation to delivery." />
+          <figcaption>A roofing company's bid workflow, built in n8n.</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -615,6 +641,7 @@
             <div class="founder-bio">
               <p>Before starting Offload, I spent years in operations and systems implementation at commercial real estate and financial services firms. I ran deployments of Yardi, ServiceNow, and Microsoft Entra across organizations with hundreds of users. The pattern was always the same: the software was in place, but the manual workarounds around it were eating people's time. Nobody had built the layer to fix it.</p>
               <p>That's what Offload does, for businesses that can't afford a 12-month enterprise rollout. You get the same thinking, without the overhead.</p>
+              <p>Everything on this page I built and tested myself. The demos run on synthetic data, never a client's real numbers.</p>
             </div>
           </div>
         </div>
